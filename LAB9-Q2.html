@@ -1,0 +1,115 @@
+<html>
+    <head></head>
+    <script>
+        const seats = [0,0,0,0,0,0,0,0,0,0];
+        const names = [];
+        const num = [];
+        const clas = [];
+
+        function hello() {
+            var name = prompt("Enter your name");
+            names.push(name);
+            var x = prompt("First class(1) or economy class(2):");
+            var flag = { value: 0 };
+            if (x == 1) {
+                checkFirstClass(flag);
+                if (flag.value == 0) {
+                    var b = confirm("Seats full, would you like to book in economy class?");
+                    if (b) {
+                        checkEconomyClass(flag);
+                        if (flag.value == 1) {
+                            x = 0;
+                            clas.push(x);
+                            alert("Booking successful");
+                            var t = confirm("Would you like to book another seat?");
+                            if (t) {
+                                hello();
+                            } else {
+                                printBookingDetails();
+                            }
+                        }
+                    }
+                } else {
+                    clas.push(x);
+                    alert("Booking successful");
+                    var t = confirm("Would you like to book another seat?");
+                    if (t) {
+                        hello();
+                    } else {
+                        printBookingDetails();
+                    }
+                }
+            } else {
+                checkEconomyClass(flag);
+                if (flag.value == 0) {
+                    var y = confirm("Seats are full, would you like to book in first class?");
+                    if (y) {
+                        checkFirstClass(flag);
+                        if (flag.value == 1) {
+                            x = 1;
+                            clas.push(x);
+                            alert("Booking successful");
+                            var p = confirm("Would you like to book another seat?");
+                            if (p) {
+                                hello();
+                            } else {
+                                printBookingDetails();
+                            }
+                        }
+                    }
+                } else {
+                    clas.push(x);
+                    alert("Booking successful");
+                    var t = confirm("Would you like to book another seat?");
+                    if (t) {
+                        hello();
+                    } else {
+                        printBookingDetails();
+                    }
+                }
+            }
+        }
+
+        function checkFirstClass(flag) {
+            let seatNo = 0;
+            for (let i = 0; i < seats.length / 2; i++) {
+                if (seats[i] == 0) {
+                    seats[i] = 1;
+                    seatNo = i + 1;
+                    num.push(seatNo);
+                    flag.value = 1;
+                    break;
+                }
+            }
+        }
+
+        function checkEconomyClass(flag) {
+            let seatNo = 0;
+            for (let i = seats.length / 2; i < seats.length; i++) {
+                if (seats[i] == 0) {
+                    seats[i] = 1;
+                    seatNo = i + 1;
+                    num.push(seatNo);
+                    flag.value = 1;
+                    break;
+                }
+            }
+        }
+
+        function printBookingDetails() {
+            for (let i = 0; i < names.length; i++) {
+                document.write("Name: " + names[i] + "<br>");
+                document.write("Seat Number: " + num[i] + "<br>");
+                document.write("Class: ");
+                if (clas[i] == 1) {
+                    document.write("First-Class <br>");
+                } else {
+                    document.write("Economy-class <br>");
+                }
+                document.write("<br>")
+            }
+        }
+
+        hello();
+    </script>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>23BCE1040 - Media & SVG</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      height: 100vh;
+    }
+    .left, .right {
+      padding: 20px;
+      overflow-y: auto;
+    }
+    .left {
+      flex: 1;
+      background-color: #f0f8ff;
+      border-right: 2px solid #ccc;
+    }
+    .right {
+      flex: 1;
+      background-color: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;
+    }
+    h2, h3 {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="left">
+    <h2>Media and Graphics</h2>
+
+    <section id="audio">
+      <h3>Audio</h3>
+      <audio controls src="audio_sample.mp3">Your browser does not support the audio element.</audio>
+    </section>
+
+    <section id="video">
+      <h3>Video</h3>
+      <video width="320" height="240" controls>
+        <source src="video_sample.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </section>
+
+    <section id="canvas">
+      <h3>Canvas</h3>
+      <canvas id="myCanvas" width="300" height="300" style="border:1px solid #000;"></canvas>
+      <script>
+        const canvas = document.getElementById("myCanvas");
+        const ctx = canvas.getContext("2d");
+        ctx.fillStyle = "lightblue";
+        ctx.fillRect(50, 50, 200, 200);
+        ctx.strokeStyle = "blue";
+        ctx.strokeRect(50, 50, 200, 200);
+        ctx.fillStyle = "black";
+        ctx.font = "20px Arial";
+        ctx.fillText("Canvas Drawing", 75, 180);
+      </script>
+    </section>
+  </div>
+
+  <div class="right">
+    <h2>My House using SVG</h2>
+    <svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+      <rect x="90" y="100" width="120" height="120" fill="brown" />
+      <polygon points="90,100 150,40 210,100" fill="red" />
+      <rect x="135" y="160" width="30" height="60" fill="saddlebrown" />
+      <rect x="125" y="220" width="50" height="10" fill="gray" />
+      <rect x="100" y="110" width="30" height="30" fill="skyblue" />
+      <rect x="170" y="110" width="30" height="30" fill="skyblue" />
+      <circle cx="150" cy="80" r="10" fill="yellow" />
+      <circle cx="245" cy="50" r="15" fill="yellow" />
+      <circle cx="250" cy="50" r="15" fill="white" />
+      <polygon points="260,70 264,80 274,80 266,86 270,96 260,90 250,96 254,86 246,80 256,80" fill="gold" />
+    </svg>
+  </div>
+</body>
+</html>

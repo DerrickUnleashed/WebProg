@@ -1,0 +1,135 @@
+<html>
+    <head></head>
+    <script>
+        function receipt()
+        {
+            let name = document.getElementById("firstName").value + " " + document.getElementById("lastName").value;
+            let phone = "Phone Number 1 : " +document.getElementById("firstNumber").value+"<br>Phone Number 2 : "+document.getElementById("secondNumber").value;
+            let email = document.getElementById("email").value;
+            let items="<b>Item\tWeight\tPrice</b><br><br>";
+            let total = 0;
+            function add(id,weightId,name)
+            {
+                if(document.getElementById(id).checked)
+                {
+                    var count = 0;
+                    let weight = document.getElementById(weightId).value;
+                    if(weight>0) items+=`${name}\t(${weight}kg)\t`;
+                    if(name==="Apple"){
+                        count += weight*10;
+                    }
+                    else if(name==="Banana"){
+                        count+=weight*5;
+                    }
+                    else{
+                        count+=weight*7;
+                    }
+                    total+=count;
+                    items+=`${count}<br><br>`;
+
+                }
+            }
+            add("appleCheckBox","weightApple","Apple");
+            add("bananaCheckBox","weightBanana","Banana");
+            add("avocadoCheckBox","weightAvocado","Avocado");
+            items+=`Total\t\t: ${total}`;
+            window.location.href=`receipt.html?name=${name}&phone=${phone}&email=${email}&items=${items}`;
+        }
+    </script>
+    <style>
+        body{
+            background-color: rgb(24, 120, 56);
+        }
+        h1{
+            text-align: center;
+        }
+        .textBox{
+            border-radius: 20px;
+            border-color: white;
+        }
+        .image{
+            width:50px;
+            height:50px;
+            border-radius: 50%;
+        }
+        .productBox{
+            display:flex;
+            align-items: center;
+            gap:20px;
+        }
+        .checkBox{
+            width:20px;
+            height:20px;
+            border-radius:50px;
+            border-color:white;
+        }
+        .weightTextBox{
+            width:50px;
+            border-radius: 20px;
+            border-color: white;
+        }
+        .cbutton{
+            display:flex;
+            align-items: center;
+            justify-content: center;
+        }
+        button{
+            color:rgb(254, 253, 251);
+            background-color:rgb(248, 167, 4);
+            font-weight:bold ;
+            height:50px;
+            width:200px;
+            border-color: rgb(248, 167, 4);
+            border-radius:20px;
+        }
+    </style>
+    <body>
+        <h1>Grocery Order Form</h1>
+        <h4>Customer Name</h4>
+        <br>
+        <input type="text" id = "firstName" class = "textBox">&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" id = "lastName" class = "textBox">
+        <br><br>
+        <h4>Phone Number</h4>
+        <br>
+        <input type="tel" id = "firstNumber" class = "textBox">&nbsp&nbsp&nbsp&nbsp&nbsp<input type="tel" id = "secondNumber" class = "textBox">
+        <h4>E-mail</h4>
+        <br>
+        <input type="email" id="email" class="textBox">
+        <br><br>
+        <hr>
+        <h3>Products</h3>
+        <br>
+        <div class="productBox">
+            <img src="apple.jpg" class="image">
+            <input type="checkBox" id="appleCheckBox" class="checkBox">
+            <span>Apple</span>
+            <span>$10</span>
+            <input type="number" id="weightApple" class="weightTextBox">
+            <span>kg</span>
+        </div>
+        <br>
+        <br>
+        <div class="productBox">
+            <img src="banana.jpg" class="image">
+            <input type="checkBox" id="bananaCheckBox" class="checkBox">
+            <span>Banana</span>
+            <span>$5</span>
+            <input type="number" id="weightBanana" class="weightTextBox">
+            <span>kg</span>
+        </div>
+        <br>
+        <br>
+        <div class="productBox">
+            <img src="avocado.jpg" class="image">
+            <input type="checkBox" id="avocadoCheckBox" class="checkBox">
+            <span>Avocado</span>
+            <span>$7</span>
+            <input type="number" id="weightAvocado" class="weightTextBox">
+            <span>kg</span>
+        </div>
+        <br>
+        <div class="cbutton">
+            <button onclick="receipt()">SUBMIT</button>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+  <head> 
+    <meta charset="UTF-8" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+    <title>Favorite Singer</title> 
+    <style> 
+      body {
+        text-align: center;
+        font-family: Arial, sans-serif;
+        background-color: #fefefe;
+        margin-top: 50px;
+      }
+
+      .myphoto { 
+        width: 150px; 
+        height: 150px; 
+        border-radius: 50%; 
+        border: 2px solid #ff6347; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s;
+      } 
+
+      .myphoto:hover {
+        transform: scale(1.1);
+      }
+
+      .title { 
+        animation: titleAnimation 5s infinite; 
+      } 
+
+      @keyframes titleAnimation { 
+        0% { 
+          color: #ff6347; 
+          font-size: 16px; 
+        } 
+        50% { 
+          color: #4682b4; 
+          font-size: 20px; 
+        } 
+        100% { 
+          color: #ff6347; 
+          font-size: 16px; 
+        } 
+      } 
+    </style> 
+  </head> 
+  <body> 
+    <h1 class="title">My Favorite Singer</h1> 
+    <img src="singer.jpeg" alt="Favorite Singer" class="myphoto" /> 
+  </body> 
+</html>

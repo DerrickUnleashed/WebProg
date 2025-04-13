@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+    <style>
+      label {
+        display: inline-block;
+        width: 150px;
+      }
+      .error {
+        width: 150px;
+        text-align: center;
+        margin-left: 50px;
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="float: right">
+      <h3>Current Time: <span id="currentTime"></span></h3>
+    </div>
+
+    <form name="myForm" onsubmit="return validate()">
+      <h3>Test Javascript Form Validation</h3>
+      <label>Name<span style="color: red">*</span></label>
+      <input type="text" name="name" />
+      <span id="nameError" class="error"></span>
+      <br /><br />
+
+      <label>Address<span style="color: red">*</span></label>
+      <textarea name="address"></textarea>
+      <span id="addressError" class="error"></span>
+      <br /><br />
+
+      <label>Zip Code<span style="color: red">*</span></label>
+      <input type="text" name="zip" />
+      <span id="zipError" class="error"></span>
+      <br /><br />
+
+      <label>Phone Number<span style="color: red">*</span></label>
+      <input type="text" name="phone" />
+      <span id="phoneError" class="error"></span>
+      <br /><br />
+
+      <label>Email<span style="color: red">*</span></label>
+      <input type="email" name="email" />
+      <span id="emailError" class="error"></span>
+      <br /><br />
+
+      <label>PAN Card<span style="color: red">*</span></label>
+      <input type="text" name="pan" />
+      <span id="panError" class="error"></span>
+      <br /><br />
+
+      <label>Country<span style="color: red">*</span></label>
+      <select name="country">
+        <option value="">--Select--</option>
+        <option value="India">India</option>
+        <option value="USA">USA</option>
+        <option value="Others">Others</option>
+      </select>
+      <span id="countryError" class="error"></span>
+      <br /><br />
+
+      <label>Gender<span style="color: red">*</span></label>
+      <input type="radio" name="gender" value="Male" />
+      <label>Male</label>
+      <input type="radio" name="gender" value="Female" />
+      <label>Female</label>
+      <span id="genderError" class="error"></span>
+      <br /><br />
+
+      <label>Password<span style="color: red">*</span></label>
+      <input type="password" name="password" />
+      <span id="passwordError" class="error"></span>
+      <br /><br />
+
+      <button type="submit">SUBMIT</button>
+      <button type="button" onclick="printForm()">PRINT FORM</button>
+    </form>
+
+    <script>
+      function updateTime() {
+        document.getElementById("currentTime").innerText =
+          new Date().toLocaleTimeString();
+        setTimeout(updateTime, 1000);
+      }
+
+      updateTime();
+
+      function validate() {
+        var form = document.forms["myForm"];
+        var name = form.name.value;
+        var namere = /^[A-Za-z]{1,15}$/;
+        if (!namere.test(name)) {
+          document.getElementById("nameError").innerHTML =
+            "Max 15 letters only";
+          form.name.focus();
+          return false;
+        }
+
+        var address = form.address.value.trim();
+        if (address === "") {
+          document.getElementById("addressError").innerHTML =
+            "Address is required";
+          form.address.focus();
+          return false;
+        }
+
+        var zipcode = form.zip.value;
+        var zipre = /^[0-9]{6}$/;
+        if (!zipre.test(zipcode)) {
+          document.getElementById("zipError").innerHTML = "Invalid Zip Code";
+          form.zip.focus();
+          return false;
+        }
+
+        var phone = form.phone.value;
+        var phonere = /^[0-9]{10}$/;
+        if (!phonere.test(phone)) {
+          document.getElementById("phoneError").innerHTML =
+            "Invalid Phone Number";
+          form.phone.focus();
+          return false;
+        }
+
+        var email = form.email.value;
+        var emailre = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailre.test(email)) {
+          document.getElementById("emailError").innerHTML = "Invalid Email";
+          form.email.focus();
+          return false;
+        }
+
+        var pan = form.pan.value;
+        var panre = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+        if (!panre.test(pan)) {
+          document.getElementById("panError").innerHTML = "Invalid PAN Format";
+          form.pan.focus();
+          return false;
+        }
+
+        var password = form.password.value;
+        var passwordre =
+          /^(?=.*\d)(?=.*[A-Za-z])(?=.*[?!*%$@])[A-Za-z\d?!*%$@]{8,15}$/;
+        if (!passwordre.test(password)) {
+          document.getElementById("passwordError").innerHTML =
+            "Invalid Password Format";
+          form.password.focus();
+          return false;
+        }
+
+        alert("Submitted successfully!");
+        return true;
+      }
+
+      function printForm() {
+        var gender = document.getElementsByName("gender");
+        var selectedGender = "";
+        for (var i = 0; i < gender.length; i++) {
+          if (gender[i].checked) {
+            selectedGender = gender[i].value;
+            break;
+          }
+        }
+
+        var country = document.forms["myForm"].country.value;
+        alert("Gender: " + selectedGender + "\nCountry: " + country);
+      }
+    </script>
+  </body>
+</html>

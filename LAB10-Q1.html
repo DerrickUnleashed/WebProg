@@ -1,0 +1,66 @@
+<html>
+    <head>
+    </head>
+    <style>
+        .box{
+            display:flex;
+            align-items:center;
+            justify-content: center;
+            flex-direction:column;
+            gap:20px;
+        }
+        p{
+            font-weight: bold;
+            font-size:large;
+        }
+    </style>
+    <script>
+        let arr = [{"pid":1,"name":"Allen","age":39} , 
+        {"pid":2,"name":"Deena","age":47} , 
+        {"pid":3,"name":"Diana","age":21} , 
+        {"pid":4,"name":"Jack","age":54} , 
+        {"pid":5,"name":"Jain","age":23} , 
+        {"pid":6,"name":"Kelvin","age":61} , 
+        {"pid":7,"name":"Louis","age":69} , 
+        {"pid":8,"name":"Rex","age":49} 
+        ];
+        function dec()
+        {
+            arr.sort((a,b)=> b.age - a.age);
+            let result = `<b>Sorted List</b><br>`;
+            arr.forEach(person => {result +=`PID: ${person.pid} | Name: ${person.name} | Age: ${person.age} <br>` });
+            document.write(result);
+        }
+        function check()
+        {
+            var x = prompt("Enter the PID to be checked");
+            let id = arr.find(person => person.pid == x);
+            if(id)
+                {
+                    document.write("The ID is present in the array");
+                }
+            else
+                {
+                    document.write("The ID is not present in the array");
+                }
+        }
+        function fil()
+        {
+            var low = parseInt(prompt("Enter starting age"));
+            var high = parseInt(prompt("Enter ending age"));
+            const res = arr.slice().filter(person=>person.age>=low && person.age<=high); 
+            let string = "<b>Filtered List</b><br>";
+            res.forEach(person=>{string+=`PID: ${person.pid} | Name: ${person.name} | Age: ${person.age} <br>` });
+            document.write(string);
+        }
+    </script>
+    <body>
+        <div class="box"><p>Click the button below to sort the array in descending order based on age</p>
+        <button onclick = dec()>Descending order</button><br>
+        <p>Click the button to check whether a particular PID is present</p><br>
+        <button onclick = check()>Check for PID</button><br>
+        <p>Click the button below to filter the array based on age range given by user</p><br>
+        <button onclick = fil()>Filter</button><br></div>
+        
+    </body>
+</html>

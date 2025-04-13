@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <style>
+            table ,th,td{
+                border: 1px solid black;
+ 
+            }
+        </style>
+    </head>
+    <script>
+        const x = [55,62,68,74,59,45,41,58,60,67,65,78,82,88,91,92,90,93,87,80,78,79,72,68,61,59,55,65];
+        let hot=0,cold=0,len = 0,pl = 0;
+        len = x.length;
+        let tab = "<table cellspacing = 0><tr><th>Temperature </th><th>Category</th></tr>"
+        for(let i=0;i<len;i++){
+            let cat = '';
+            if(x[i]<60){
+                cat = 'Cold'
+                cold++;
+            }
+            else if(x[i]<=84){
+                cat = 'Pleasant'
+                pl++;
+            }
+            else{
+                cat = 'Hot'
+                hot++;
+            }
+            tab += "<tr><td>" + x[i] + "</td><td>"+ cat + "</td></tr>";
+        }
+        tab += "</table><br>"
+        document.write(tab);
+        document.write("Number of cold days is: " + cold + "<br>");
+        document.write("Number of pleasant days is: " + pl + "<br>" );
+        document.write("Number of hot days is: " + hot);
+    </script>
+</html>

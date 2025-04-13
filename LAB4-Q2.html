@@ -1,0 +1,77 @@
+<html>
+<body>
+<form>
+    <fieldset>
+		<legend style="color:red;font-family:verdana">Personal Details</legend>
+		<label for = "name" style="width:80px;margin-bottom:10px;display:inline-block">Name: </label>
+		<input id="name" name="name" type="text" required></input><br>
+		<label for = "password" style="width:80px;margin-bottom:10px;display:inline-block">Password: </label>
+		<input id="password" name="password" type="password" required></input><br>
+		<label for = "email" style="width:80px;margin-bottom:10px;display:inline-block">E-Mail: </label>
+		<input id="email" name="email" type="text" required></input><br>
+		<label for = "gender" style="width:80px;margin-bottom:10px;display:inline-block">Gender: </label>
+		<input id="male" name="gender" type="radio" required>Male</input>
+		<input id="female" name="gender" type="radio" required>Female</input><br>
+		<label for = "dob" style="width:80px;margin-bottom:10px;display:inline-block">DOB: </label>
+		<input id="dob" name="dob" type="date" required></input><br>
+		<label for = "mobile#" style="width:80px;margin-bottom:10px;display:inline-block">Mobile#: </label>
+		<input id="mobile#" name="mobile#" type="text" required></input><br>
+	</fieldset>
+	<br><br>
+	<fieldset>
+		<legend style="color:red;font-family:verdana">Educational Qualification</legend>
+		<label for="degree">Degree:</label>
+		<select id="degree" name="degree">
+		    <optgroup label="--Select Group--"><option name="--Select Group--">--Select Group--</option></optgroup>
+			<optgroup label = "UG">
+				<option name="BE">BE</option>
+				<option name="BTech">BTech</option>
+				<option name="BSc">BSc</option>
+				<option name="BA">BA</option>
+				<option name="BCA">BCA</option>
+				<option name="BBA">BBA</option>
+				<option name="Others">Others</option>
+			</optgroup>
+			<optgroup label = "PG">
+				<option name="ME">ME</option>
+				<option name="MTech">MTech</option>
+				<option name="MSc">MSc</option>
+				<option name="MA">MA</option>
+				<option name="MCA">MCA</option>
+				<option name="MBA">MBA</option>
+				<option name="Others">Others</option>
+			</optgroup>
+			<optgroup label = "PhD">
+				<option name="Engg">Engineering</option>
+				<option name="Sci">Science</option>
+				<option name="Mgmt">Management</option>
+				
+				<option name="Others">Others</option>
+			</optgroup>
+		</select>
+		<label for="engg">Engineering:</label>
+		<select id="engg" name="engg">
+			<option name="--Select Group--">--Select Group--</optgroup>
+			<option name="CSE">CSE</option>
+			<option name="ECE">ECE</option>
+			<option name="EEE">EEE</option>
+			<option name="CIVIL">CIVIL</option>
+			<option name="MECH">MECH</option>
+		</select>
+	</fieldset>	
+	<br>
+	<label>Hobbies:</label>
+	<input id="hbsc" name="hbsc" type="checkbox">Playing Chess</input>
+	<input id="hbsr" name="hbsr" type="checkbox">Reading Books</input>
+	<br>
+	<label for="colr">Favourite Color:</label>
+	<input id="colr" name="colr" type="color"></input>
+	<br>
+	<h3 style="color:red;font-family:verdana">Address</h3>
+	<textarea name="address" rows="5" cols="100"></textarea> <br><br>
+	Attach Resume:
+	<input type="file"></input>
+	<input type="submit" value="Submit"></input>
+</form>
+</body>
+</html>

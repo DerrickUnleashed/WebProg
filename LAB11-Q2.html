@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi-Tool Web App</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+      }
+      section {
+        margin-bottom: 50px;
+      }
+      #display {
+        font-size: 40px;
+        margin-bottom: 20px;
+      }
+      button {
+        font-size: 18px;
+        padding: 10px 20px;
+        margin: 5px;
+        cursor: pointer;
+      }
+      textarea {
+        width: 300px;
+        height: 100px;
+        font-size: 16px;
+        padding: 10px;
+        margin-top: 10px;
+        resize: none;
+      }
+      #counter {
+        font-size: 14px;
+        color: #555;
+        margin-top: 10px;
+      }
+      input[type="date"] {
+        padding: 10px;
+        font-size: 16px;
+        margin-top: 10px;
+      }
+      #age {
+        font-size: 18px;
+        font-weight: bold;
+        color: green;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Stopwatch -->
+    <section>
+      <h2>Stopwatch</h2>
+      <div id="display">00:00:00</div>
+      <button id="start">Start</button>
+      <button id="stop">Stop</button>
+      <button id="reset">Reset</button>
+    </section>
+
+    <!-- Character Counter -->
+    <section>
+      <h2>Live Character Counter</h2>
+      <textarea id="textArea" placeholder="Type something..."></textarea>
+      <p id="counter">Characters: 0</p>
+    </section>
+
+    <!-- Age Calculator -->
+    <section>
+      <h2>Age Calculator</h2>
+      <label for="dob">Enter your Date of Birth:</label><br />
+      <input type="date" id="dob" />
+      <p id="age"></p>
+    </section>
+
+    <script>
+      // Stopwatch Logic
+      let timer;
+      let seconds = 0,
+        minutes = 0,
+        hours = 0;
+      let isRunning = false;
+
+      function updateDisplay() {
+        let h = String(hours).padStart(2, "0");
+        let m = String(minutes).padStart(2, "0");
+        let s = String(seconds).padStart(2, "0");
+        document.getElementById("display").textContent = `${h}:${m}:${s}`;
+      }
+
+      function start() {
+        if (!isRunning) {
+          isRunning = true;
+          timer = setInterval(() => {
+            seconds++;
+            if (seconds === 60) {
+              seconds = 0;
+              minutes++;
+            }
+            if (minutes === 60) {
+              minutes = 0;
+              hours++;
+            }
+            updateDisplay();
+          }, 1000);
+        }
+      }
+
+      function stop() {
+        clearInterval(timer);
+        isRunning = false;
+      }
+
+      function reset() {
+        stop();
+        seconds = minutes = hours = 0;
+        updateDisplay();
+      }
+
+      document.getElementById("start").addEventListener("click", start);
+      document.getElementById("stop").addEventListener("click", stop);
+      document.getElementById("reset").addEventListener("click", reset);
+
+      // Character Counter Logic
+      const textArea = document.getElementById("textArea");
+      const counter = document.getElementById("counter");
+
+      textArea.addEventListener("input", () => {
+        counter.textContent = `Characters: ${textArea.value.length}`;
+      });
+
+      // Age Calculator (on mouseover)
+      const dobInput = document.getElementById("dob");
+      const ageDisplay = document.getElementById("age");
+
+      dobInput.addEventListener("mouseover", () => {
+        const dob = new Date(dobInput.value);
+        if (isNaN(dob)) {
+          ageDisplay.textContent = "";
+          return;
+        }
+        const today = new Date();
+        let age = today.getFullYear() - dob.getFullYear();
+        const monthDiff = today.getMonth() - dob.getMonth();
+        const dayDiff = today.getDate() - dob.getDate();
+
+        if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+          age--;
+        }
+
+        ageDisplay.textContent = `Your age is: ${age} years`;
+      });
+    </script>
+  </body>
+</html>

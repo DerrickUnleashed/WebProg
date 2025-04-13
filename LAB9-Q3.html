@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      table {
+        border: 1px solid black;
+        padding: 1px;
+        width: 100px;
+      }
+      th,
+      td {
+        border: 1px solid black;
+        padding: 1px;
+      }
+    </style>
+  </head>
+  <script src="LAB9-Q3.js" type="text/javascript"></script>
+  <body>
+    <table>
+      <tr>
+        <th colspan="2">
+          BMI Calculator
+          <select id="genderI">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </th>
+      </tr>
+      <tr>
+        <th colspan="2">
+          Enter your Weight:<br />
+          (pounds):<input type="text" id="poundsI" />
+        </th>
+      </tr>
+      <tr>
+        <th colspan="2">
+          Enter your Height:<br />
+          (feet):<input type="text" id="feetI" /><br /><br />
+          (inches):<input type="text" id="inchesI" />
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <div class="c"><button onclick="bmi()">Compute</button></div>
+        </td>
+      </tr>
+      <tr>
+        <th style="word-wrap: normal; width: 30px">YOUR BMI</th>
+        <td><input type="text" id="res" /></td>
+      </tr>
+    </table>
+  </body>
+</html>

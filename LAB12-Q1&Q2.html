@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>121</title>
+    <style>
+      canvas {
+        border: 1px solid black;
+      }
+      body {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas></canvas>
+    <script>
+      var canvas = document.querySelector("canvas");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      var c = canvas.getContext("2d");
+      c.fillStyle = "orange";
+      c.strokeStyle = "blue";
+      //House
+      c.fillRect(70, 300, 100, 125);
+      c.strokeRect(70, 300, 100, 125);
+      //Door
+      c.fillStyle = "brown";
+      c.fillRect(110, 375, 20, 50);
+      c.strokeRect(110, 375, 20, 50);
+      //Window
+      c.fillStyle = "blue";
+      c.fillRect(80, 320, 30, 30);
+      //Triangle Roof
+      c.beginPath();
+      c.moveTo(70, 300);
+      c.lineTo(120, 250);
+      c.lineTo(170, 300);
+      c.lineTo(70, 300);
+      c.stroke();
+      c.fillStyle = "red";
+      c.fill();
+      //Stones beneath the house
+      c.fillStyle = "grey";
+      c.beginPath();
+      c.arc(100, 525, 20, 0, Math.PI * 2);
+      c.stroke();
+      c.fill();
+      c.beginPath();
+      c.arc(125, 540, 14, 0, Math.PI * 2);
+      c.stroke();
+      c.fill();
+      c.beginPath();
+      c.arc(150, 515, 25, 0, Math.PI * 2);
+      c.stroke();
+      c.fill();
+      //Stones on bottom right
+      c.beginPath();
+      c.arc(650, 550, 20, 0, Math.PI * 2);
+      c.stroke();
+      c.fill();
+      c.beginPath();
+      c.arc(680, 560, 15, 0, Math.PI * 2);
+      c.stroke();
+      c.fill();
+      //Duck
+      c.fillStyle = "yellow";
+      c.beginPath();
+      c.arc(620, 490, 30, 0, Math.PI * 2);
+      c.stroke();
+      c.fill();
+      c.beginPath();
+      c.arc(650, 460, 23, 0, Math.PI * 2);
+      c.stroke();
+      c.fill();
+      c.fillStyle = "black";
+      c.beginPath();
+      c.arc(655, 450, 7, 0, Math.PI * 2);
+      c.stroke();
+      c.fill();
+      c.fillStyle = "orange";
+      c.beginPath();
+      c.moveTo(673, 450);
+      c.lineTo(673, 470);
+      c.lineTo(693, 460);
+      c.stroke();
+      c.fill();
+      //Pond
+      c.fillStyle = "cyan";
+      c.beginPath();
+      c.ellipse(400, 360, 170, 80, 0, 0, Math.PI * 2);
+      c.stroke();
+      c.fill();
+      //Boat
+      var x1 = 340;
+      var x2 = 460;
+      var x3 = 380;
+      var x4 = 420;
+      var dx = 1;
+      c.fillStyle = "brown";
+      function animate() {
+        c.fillStyle = "cyan";
+        c.strokeStyle = "blue";
+        c.beginPath();
+        c.ellipse(400, 360, 170, 80, 0, 0, Math.PI * 2);
+        c.fill();
+        c.stroke();
+        c.fillStyle = "brown";
+        c.beginPath();
+        c.moveTo(x3, 370);
+        c.lineTo(x4, 370);
+        c.lineTo(x2, 340);
+        c.lineTo(x1, 340);
+        c.stroke();
+        c.fill();
+        if (x2 == 560 || x1 == 240) {
+          dx = -dx;
+        }
+        x1 = x1 + dx;
+        x2 = x2 + dx;
+        x3 = x3 + dx;
+        x4 = x4 + dx;
+        requestAnimationFrame(animate);
+      }
+      animate();
+      //Flower Base
+      c.fillStyle = "green";
+      c.strokeStyle = "green";
+      c.fillRect(800, 430, 10, 100);
+      c.beginPath();
+      c.ellipse(800, 430, 35, 15, -70, 0, Math.PI * 2);
+      c.fill();
+      c.beginPath();
+      c.ellipse(810, 430, 35, 15, 70, 0, Math.PI * 2);
+      c.fill();
+      //Petals
+      c.fillStyle = "pink";
+      c.beginPath();
+      c.ellipse(790, 415, 20, 35, 0, 0, Math.PI * 2);
+      c.fill();
+      c.beginPath();
+      c.ellipse(820, 415, 20, 35, 0, 0, Math.PI * 2);
+      c.fill();
+      c.beginPath();
+      c.ellipse(790, 380, 20, 35, 0, 0, Math.PI * 2);
+      c.fill();
+      c.beginPath();
+      c.ellipse(820, 380, 20, 35, 0, 0, Math.PI * 2);
+      c.fill();
+      c.beginPath();
+      c.ellipse(840, 395, 20, 30, 0, 0, Math.PI * 2);
+      c.fill();
+      c.beginPath();
+      c.ellipse(770, 395, 20, 30, 0, 0, Math.PI * 2);
+      c.fill();
+      //Flower base (yellow)
+      c.fillStyle = "yellow";
+      c.beginPath();
+      c.arc(805, 395, 15, 0, Math.PI * 2);
+      c.fill();
+      //Sun
+      c.strokeStyle = "yellow";
+      c.beginPath();
+      c.arc(805, 100, 30, 0, Math.PI * 2);
+      c.fill();
+      for (var x = 0; x < 12; x++) {
+        const angle = 30 * x;
+        const movex = 805 + Math.cos(angle * (Math.PI / 180)) * 35;
+        const movey = 100 + Math.sin(angle * (Math.PI / 180)) * 35;
+        const endx = 805 + Math.cos(angle * (Math.PI / 180)) * 65;
+        const endy = 100 + Math.sin(angle * (Math.PI / 180)) * 65;
+        c.beginPath();
+        c.moveTo(movex, movey);
+        c.lineTo(endx, endy);
+        c.stroke();
+      }
+    </script>
+  </body>
+</html>

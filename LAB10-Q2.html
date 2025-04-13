@@ -1,0 +1,77 @@
+<html>
+  <head></head>
+  <body>
+    <h1 id="title">Original Title</h1>
+    <input type="text" name="username" /><br /><br />
+    <label><input type="radio" name="gender" value="male" />Male</label>
+    <label><input type="radio" name="gender" value="female" />Female</label>
+    <p id="genderss"></p>
+    <p id="count"></p>
+    <p class="info">Info 1</p>
+    <p class="info">Info 2</p>
+    <p class="Info">Info 3</p>
+    <ul class="input-field">
+      <li>C</li>
+      <li>C++</li>
+      <li>Python</li>
+      <li>Java</li>
+    </ul>
+    <br />
+    <div class="input-field"><span>Box 1 with class input-field</span></div>
+    <br /><br />
+    <div class="input-field"><span>Box 2 with class input-field</span></div>
+    <p id="e"></p>
+    <input type="checkbox" class="hobby" />Football
+    <input type="checkbox" class="hobby" />Cricket
+    <input type="checkbox" class="hobby" />Coding <br /><br />
+    <button onclick="update()">Update all the details</button>
+    <script>
+      function update() {
+        document.getElementById("title").innerHTML = "Updated Title";
+        document.getElementsByName("username")[0].value = "John Doe";
+        let genders = document.getElementsByName("gender");
+        let sgender = "";
+        for (let a of genders) {
+          if (a.checked) {
+            sgender = a;
+            break;
+          }
+        }
+        document.getElementById("genderss").innerHTML = sgender.value;
+        let allp = document.getElementsByTagName("p");
+        var c = 0;
+        for (let a of allp) {
+          c = c + 1;
+        }
+        document.getElementById("count").innerHTML =
+          "No. of paragraph tag elements : " + c;
+        let allli = document.getElementsByTagName("li");
+        for (let a of allli) {
+          console.log(a.innerText + " ");
+        }
+        let arri = document.getElementsByClassName("input-field");
+        for (let p of arri) {
+          p.style.backgroundColor = "lightblue";
+        }
+        document.querySelector(".info").innerHTML =
+          "This is the first info paragraph";
+        if (document.querySelector("[name='gender']").checked) {
+          document.getElementById("e").innerHTML =
+            "The first gender radio button is checked";
+        } else {
+          document.getElementById("e").innerHTML =
+            "The first gender radio button is not checked";
+        }
+        let infoarr = document.querySelectorAll(".info");
+        infoarr.forEach((p) => {
+          console.log(p.innerHTML);
+        });
+        let hobbyarr = document.querySelectorAll(".hobby");
+        hobbyarr.forEach((h) => {
+          h.checked = true;
+          console.log(h.value);
+        });
+      }
+    </script>
+  </body>
+</html>

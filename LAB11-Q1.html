@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>23BCE1040</title>
+  </head>
+  <body>
+    <script>
+      // Table
+      let table = document.createElement("table");
+      table.style.borderCollapse = "collapse";
+      table.style.width = "200px";
+      table.style.height = "200px";
+      table.style.margin = "auto";
+
+      for (let i = 0; i < 3; i++) {
+        let row = table.insertRow();
+        for (let j = 0; j < 3; j++) {
+          let cell = row.insertCell(j);
+          cell.style.border = "2px solid black";
+        }
+      }
+
+      document.body.appendChild(table);
+
+      // Button with hover
+      let hoverBtn = document.createElement("button");
+      hoverBtn.style.width = "100px";
+      hoverBtn.style.height = "50px";
+      hoverBtn.textContent = "Button";
+      hoverBtn.style.backgroundColor = "red";
+      hoverBtn.addEventListener("mouseover", function () {
+        hoverBtn.style.backgroundColor = "green";
+      });
+
+      document.body.appendChild(hoverBtn);
+
+      // Textarea with focus color change
+      let textarea = document.createElement("textarea");
+      textarea.style.width = "200px";
+      textarea.style.marginLeft = "200px";
+      textarea.style.height = "200px";
+      textarea.textContent = "Text area";
+      textarea.style.backgroundColor = "green";
+      textarea.addEventListener("focus", function () {
+        textarea.style.backgroundColor = "yellow";
+      });
+
+      document.body.appendChild(textarea);
+
+      // Text input with list on double click
+      let inputText = document.createElement("input");
+      inputText.setAttribute("type", "text");
+      inputText.setAttribute("placeholder", "Enter your text here");
+      inputText.style.marginLeft = "600px";
+      inputText.style.width = "200px";
+      inputText.style.height = "50px";
+
+      let clickBtn = document.createElement("button");
+      clickBtn.style.marginLeft = "670px";
+      clickBtn.style.width = "50px";
+      clickBtn.style.height = "25px";
+      clickBtn.textContent = "Click";
+
+      let list = document.createElement("ul");
+
+      clickBtn.addEventListener("dblclick", function () {
+        let l = document.createElement("li");
+        l.textContent = inputText.value;
+        list.appendChild(l);
+        inputText.value = "";
+      });
+
+      document.body.appendChild(inputText);
+      document.body.appendChild(document.createElement("br"));
+      document.body.appendChild(clickBtn);
+      document.body.appendChild(document.createElement("br"));
+      document.body.appendChild(list);
+
+      // Keydown counter
+      let counterInput = document.createElement("input");
+      let triggerInput = document.createElement("input");
+
+      counterInput.style.width = "200px";
+      counterInput.style.height = "50px";
+      triggerInput.style.width = "200px";
+      triggerInput.style.height = "50px";
+      triggerInput.setAttribute("placeholder", "Enter your text here");
+
+      triggerInput.style.display = "inline-block";
+      counterInput.style.display = "inline-block";
+      triggerInput.style.marginLeft = "10px";
+
+      let count = 0;
+      triggerInput.addEventListener("keydown", function () {
+        count++;
+        counterInput.value = String(count);
+      });
+
+      document.body.appendChild(triggerInput);
+      document.body.appendChild(counterInput);
+      document.body.appendChild(document.createElement("br"));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initialscale=1.0">
+ <title>Z-Index Manipulation</title>
+ <style>
+ body {
+ font-family: Arial, sans-serif;
+ text-align: center;
+ }
+ .container {
+ position: relative;
+ width: 400px;
+ height: 300px;
+ margin: 50px auto;
+ border: 2px solid black;
+ }
+ .box {
+ position: absolute;
+ width: 150px;
+ height: 150px;
+ color: white;
+ font-size: 18px;
+ font-weight: bold;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ border-radius: 10px;
+ }
+ #box1 { background: red; top: 50px; left: 50px; z-index: 1; }
+ #box2 { background: blue; top: 80px; left: 100px; z-index: 2; }
+ #box3 { background: green; top: 110px; left: 150px; z-index: 3;
+}
+ .controls {
+ margin-top: 20px;
+ }
+ </style>
+</head>
+<body>
+ <h2>Change Z-Index Dynamically</h2>
+ <div class="container">
+ <div id="box1" class="box">Box 1 (Z: 1)</div>
+ <div id="box2" class="box">Box 2 (Z: 2)</div>
+ <div id="box3" class="box">Box 3 (Z: 3)</div>
+ </div>
+ <div class="controls">
+ <h3>Adjust Z-Index:</h3>
+ <div>
+ <button onclick="changeZIndex('box1', 1)">Box 1
+↑</button>
+ <button onclick="changeZIndex('box1', -1)">Box 1
+↓</button>
+ </div>
+ <div>
+ <button onclick="changeZIndex('box2', 1)">Box 2
+↑</button>
+ <button onclick="changeZIndex('box2', -1)">Box 2
+↓</button>
+ </div>
+ <div>
+ <button onclick="changeZIndex('box3', 1)">Box 3
+↑</button>
+ <button onclick="changeZIndex('box3', -1)">Box 3
+↓</button>
+ </div>
+ </div>
+ <script>
+ function changeZIndex(boxId, change) {
+ let box = document.getElementById(boxId);
+ let currentZIndex =
+parseInt(window.getComputedStyle(box).zIndex);
+ let newZIndex = currentZIndex + change;
+ // Ensure z-index stays within reasonable bounds (e.g., 1 to 10)
+ if (newZIndex >= 1 && newZIndex <= 10) {
+ box.style.zIndex = newZIndex;
+ box.innerText = `${boxId.charAt(3)} (Z: ${newZIndex})`;
+ }
+ }
+ </script>
+</body>
+</html>

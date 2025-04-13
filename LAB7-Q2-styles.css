@@ -1,0 +1,94 @@
+body { 
+    color: rgb(250, 250, 250);  
+    font-family: cursive; 
+    background-image: url("paws.webp");  
+    background-position: center; 
+    background-size: cover; 
+    background-color: #cccccc; 
+} 
+
+.title { 
+    display: block; 
+    background: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red); 
+    background-clip: text; 
+    color: transparent; 
+    align-self: center; 
+} 
+
+.grid { 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-evenly; 
+    gap: 0.5em; 
+} 
+
+.row_grid { 
+    display: flex; 
+    flex-direction: row; 
+    flex-wrap: wrap; 
+    gap: 0.5em; 
+} 
+
+.pets_outer { 
+    flex: 1; 
+    transition: 0.5s; 
+    background-color: #BB7B79;  
+    border: 2px solid rgb(117, 117, 117);  
+    border-radius: 10px; 
+    padding: 1em; 
+} 
+
+.pets_outer:hover { 
+    transition-delay: 0.2s; 
+    flex-basis: 1.3%; 
+    font-size: 1.05em; 
+} 
+
+.pet_name { 
+    color: rgba(92, 12, 47, 0.9);  
+    font-size: 1.5em; 
+    text-align: center; 
+} 
+
+.pet_photo { 
+    max-width: 15em; 
+    display: block; 
+    border-radius: 5px; 
+    margin: 0.5em auto;  
+} 
+
+.pet_description { 
+    color: rgb(245, 245, 220);  
+    line-height: 30pt;  
+    margin-left: 2%; 
+    font-size: 0.9em;  
+} 
+
+#dog_svg_div { 
+    justify-self: center; 
+} 
+ 
+.svg_title { 
+    color: rgba(92, 12, 47, 0.9);  
+    font-size: 1.5em; 
+    margin-top: 5%; 
+    text-align: center; 
+} 
+ 
+#svg_ball { 
+    animation: bounce 3s infinite ease-out;   
+} 
+ 
+@keyframes bounce { 
+    0% { 
+        transform: translateY(0) skewY(0) rotateZ(0deg); 
+    } 
+     
+    50% { 
+        transform: translateY(-50px) skewY(10deg) rotateZ(180deg); 
+    } 
+     
+    100% { 
+        transform: translateY(0) skewY(0) rotateZ(360deg); 
+    } 
+}
