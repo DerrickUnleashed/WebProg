@@ -1,6 +1,137 @@
-<html>
-  <a href="https://DerrickUnleashed.github.io/WebProg/LAB12-Q1&Q2.html">Q1&Q2</a>
-  <a href="https://DerrickUnleashed.github.io/WebProg/LAB12-Q3.html">Q3</a>
-  <a href="https://DerrickUnleashed.github.io/WebProg/LAB12-Q4.html">Q4</a>
-   <a href="https://DerrickUnleashed.github.io/WebProg/LAB12-Q5.html">Q5</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LAB 12 - Derrick Samuel R.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+    }
+
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      color: #00ffe0;
+      text-shadow: 0 0 10px #00ffe0;
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
+      color: #bbb;
+    }
+
+    header img {
+      margin-top: 1.5rem;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid #00ffe0;
+      box-shadow: 0 0 20px #00ffe0;
+      object-fit: cover;
+    }
+
+    main {
+      width: 90%;
+      max-width: 800px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 2rem 0;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      color: #00ffe0;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1rem;
+      padding: 0;
+    }
+
+    li a {
+      display: block;
+      padding: 1rem;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: #00ffe0;
+      text-align: center;
+      border-radius: 10px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid #00ffe0;
+    }
+
+    li a:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #00ffe0;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    footer {
+      margin: 2rem 0 1rem;
+      font-size: 0.9rem;
+      color: #aaa;
+      text-align: center;
+    }
+
+    @media screen and (max-width: 500px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      li a {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Derrick Samuel R.</h1>
+    <p>Reg. No.: 23BCE1040</p>
+    <img src="photo.jpeg" alt="Derrick's Photo" />
+  </header>
+
+  <main>
+    <h2>LAB 12</h2>
+    <ul>
+      <li><a href="https://DerrickUnleashed.github.io/WebProg/LAB12-Q1&Q2.html">Q1&Q2</a></li>
+      <li><a href="https://DerrickUnleashed.github.io/WebProg/LAB12-Q3.html">Q3</a></li>
+      <li><a href="https://DerrickUnleashed.github.io/WebProg/LAB12-Q4.html">Q4</a></li>
+      <li><a href="https://DerrickUnleashed.github.io/WebProg/LAB12-Q5.html">Q5</a></li>
+    </ul>
+  </main>
+
+  <footer>&copy; 2025 Derrick Samuel R.</footer>
+</body>
 </html>
