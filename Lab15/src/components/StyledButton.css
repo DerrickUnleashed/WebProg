@@ -1,0 +1,11 @@
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.red-button {
+    background-color: red;
+    padding: 10px;
+    font-size: 25px;
+}
